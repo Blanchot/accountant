@@ -69,7 +69,10 @@ def write_account(tijd, stake, new_balance):
 
 get_address()
 get_last_balance()
-get_NEBL_balance()
+#get_NEBL_balance()
 
-
+while True:
+  get_NEBL_balance()
+  time.sleep(3600)
+ 
 
