@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 #blockExplorer_1.py
 # Stake calculations from a Neblio address
 
@@ -15,7 +17,7 @@ from time import time as timestamp
 
 def get_address():
   global address
-  fileobj= open('address.txt', 'rt')
+  fileobj= open('/home/pi/accountant/address.txt', 'rt')
   address= fileobj.read()
   address= address.strip('\n') # Strips the new line symbol from the end of the address '\n'
   # print('Address:', address)
@@ -24,7 +26,7 @@ def get_address():
 
 def get_last_balance():
   global last_balance
-  fileobj= open('balance.txt', 'rt')
+  fileobj= open('/home/pi/accountant/balance.txt', 'rt')
   b= fileobj.read()
   last_balance=float(b)
   print('Last balance:',last_balance)
@@ -52,7 +54,7 @@ def get_NEBL_balance():
 
 def write_new_balance(new_balance):
   new_balance= str(new_balance)
-  fileobj= open('balance.txt', 'wt')
+  fileobj= open('/home/pi/accountant/balance.txt', 'wt')
   fileobj.write(new_balance)
   fileobj.close()
   print('Saved new balance to balance.txt')
@@ -62,7 +64,7 @@ def write_account(tijd, stake, new_balance):
   stake= str(stake)
   new_balance= str(new_balance)
   update= tijd + "," + stake + "," + new_balance
-  fileobj= open('account.txt', 'a')
+  fileobj= open('/home/pi/accountant/account.txt', 'a')
   fileobj.write(update)
   fileobj.write("\n")
   fileobj.close
@@ -71,10 +73,13 @@ def write_account(tijd, stake, new_balance):
 
 get_address()
 get_last_balance()
-#get_NEBL_balance()
+get_NEBL_balance()
 
+'''
+# for testing
 while True:
   get_NEBL_balance()
   time.sleep(3600)
- 
+
+'''
 
