@@ -10,7 +10,8 @@ import time
 
 localtime = time.asctime(time.localtime(time.time()))
 
-fileobj= open('cronTest.txt', 'a')
+# note: need to define full pathway below otherwise it creates cronTest.txt in home directory
+fileobj= open('/home/pi/work/accountant/cronTest.txt', 'a')
 fileobj.write(localtime)
 fileobj.write('\n')
 fileobj.close
