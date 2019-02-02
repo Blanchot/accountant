@@ -9,8 +9,9 @@ explorer.nebl.io/ext/getbalance/<address>
 '''
 
 import requests, json
+import time
 from time import time
-from time import sleep
+
 
 def get_address():
   global address
