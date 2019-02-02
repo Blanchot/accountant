@@ -64,6 +64,7 @@ def write_account(tijd, stake, new_balance):
   update= tijd + "," + stake + "," + new_balance
   fileobj= open('account.txt', 'a')
   fileobj.write(update)
+  fileobj.write("\n")
   fileobj.close
   print('Saved time, stake and the new balance to account.txt')
   
