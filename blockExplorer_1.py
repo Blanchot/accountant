@@ -12,7 +12,6 @@ explorer.nebl.io/ext/getbalance/<address>
 
 import requests, json
 import time
-from time import time as timestamp
 
 
 def get_address():
@@ -40,12 +39,12 @@ def get_NEBL_balance():
     b= json.loads(r.text)
     new_balance= float(b)
     if new_balance > last_balance:
-      tijd = int(timestamp())
+      timestamp = int(time.time())
       stake = new_balance - last_balance
-      print('New balance:',new_balance,'Timestamp:',tijd)
+      print('New balance:',new_balance,'Timestamp:',timestamp)
       print('Stake:',stake)
       write_new_balance(new_balance)
-      write_account(tijd, stake, new_balance)
+      write_account(timestamp, stake, new_balance)
     else:
       print('No recent stakes')
   except requests.ConnectionError:
@@ -59,16 +58,16 @@ def write_new_balance(new_balance):
   fileobj.close()
   print('Saved new balance to balance.txt')
   
-def write_account(tijd, stake, new_balance):
-  tijd= str(tijd)
+def write_account(timestamp, stake, new_balance):
+  timestamp= str(timestamp)
   stake= str(stake)
   new_balance= str(new_balance)
-  update= tijd + "," + stake + "," + new_balance
+  update= timestamp + "," + stake + "," + new_balance
   fileobj= open('/home/pi/accountant/account.txt', 'a')
   fileobj.write(update)
   fileobj.write("\n")
   fileobj.close
-  print('Saved time, stake and the new balance to account.txt')
+  print('Saved timestamp, stake and the new balance to account.txt')
   
 
 get_address()
