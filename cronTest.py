@@ -3,7 +3,7 @@
 # Python script test for crontab
 # NOTE: First create cronTest.txt by hand
 # Crontab instruction: 
-# 
+# 0-59 * * * * /home/pi/work/accountant/cronTest.py
 
 import time
 
@@ -11,6 +11,7 @@ localtime = time.asctime(time.localtime(time.time()))
 
 fileobj= open('cronTest.txt', 'a')
 fileobj.write(localtime)
+fileobj.write('\n')
 fileobj.close
 
-print("Local current time :", localtime)
+#print("Local current time :", localtime)
