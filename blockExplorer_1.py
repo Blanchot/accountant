@@ -10,7 +10,7 @@ explorer.nebl.io/ext/getbalance/<address>
 
 import requests, json
 import time
-from time import time
+from time import time as timestamp
 
 
 def get_address():
@@ -38,7 +38,7 @@ def get_NEBL_balance():
     b= json.loads(r.text)
     new_balance= float(b)
     if new_balance > last_balance:
-      tijd = int(time())
+      tijd = int(timestamp())
       stake = new_balance - last_balance
       print('New balance:',new_balance,'Timestamp:',tijd)
       print('Stake:',stake)
