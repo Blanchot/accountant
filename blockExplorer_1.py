@@ -2,6 +2,8 @@
 
 #blockExplorer_1.py
 # Stake calculations from a Neblio address
+# Crontab instruction to run once a day at 23:55:
+# 59 23 * * * /usr/bin/python3 /home/pi/accountant/blockExplorer_1.py
 
 '''
 API
