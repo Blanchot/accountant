@@ -40,14 +40,19 @@ def get_NEBL_balance():
     r= requests.get(URL_BAL)
     b= json.loads(r.text)
     new_balance= float(b)
+    timestamp = int(time.time()) #temp change
     if new_balance > last_balance:
-      timestamp = int(time.time())
+      #timestamp = int(time.time())
       stake = new_balance - last_balance
       print('New balance:',new_balance,'Timestamp:',timestamp)
       print('Stake:',stake)
       write_new_balance(new_balance)
       write_account(timestamp, stake, new_balance)
     else:
+      # write last balance with 0 stakes instead
+      stake = 0
+      new_balance = last_balance
+      write_account(timestamp, stake, new_balance)
       print('No recent stakes')
   except requests.ConnectionError:
     print("Error querying Block Explorer API")
