@@ -40,16 +40,14 @@ def get_NEBL_balance():
     r= requests.get(URL_BAL)
     b= json.loads(r.text)
     new_balance= float(b)
-    timestamp = int(time.time()) #temp change
+    timestamp = int(time.time())
     if new_balance > last_balance:
-      #timestamp = int(time.time())
-      stake = new_balance - last_balance
+      stake = round(new_balance - last_balance,8)
       print('New balance:',new_balance,'Timestamp:',timestamp)
       print('Stake:',stake)
       write_new_balance(new_balance)
       write_account(timestamp, stake, new_balance)
     else:
-      # write last balance with 0 stakes instead
       stake = 0
       new_balance = last_balance
       write_account(timestamp, stake, new_balance)
