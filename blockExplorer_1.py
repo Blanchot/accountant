@@ -66,7 +66,7 @@ def write_new_balance(new_balance):
   
 def write_account(timestamp, stake, new_balance):
   #localtime= time.asctime(time.localtime(time.time()))
-  localtime= datetime.datetime.utcfromtimestamp(timestamp)
+  localtime= datetime.datetime.fromtimestamp(timestamp)
   localtime= localtime.strftime('%d-%m-%Y %H:%M:%S')
   timestamp= str(timestamp)
   stake= str(stake)
