@@ -71,7 +71,7 @@ def write_account(timestamp, stake, new_balance):
   timestamp= str(timestamp)
   stake= str(stake)
   new_balance= str(new_balance)
-  update= localtime + "," + timestamp + "," + stake + "," + new_balance
+  update= localtime + "," + timestamp + "," + new_balance + "," + stake
   fileobj= open('/home/pi/accountant/account.txt', 'a')
   fileobj.write(update)
   fileobj.write("\n")
