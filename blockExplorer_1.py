@@ -67,17 +67,19 @@ def write_new_balance(new_balance):
 def write_account(timestamp, stake, new_balance):
   #localtime= time.asctime(time.localtime(time.time()))
   localtime= datetime.datetime.fromtimestamp(timestamp)
-  localtime= localtime.strftime('%d-%m-%Y %H:%M:%S')
+  #localtime= localtime.strftime('%d-%m-%Y %H:%M:%S')
+  localdate= localtime.strftime('%d-%m-%Y')
+  localtime= localtime.strftime('%H:%M:%S')
   timestamp= str(timestamp)
   stake= str(stake)
   new_balance= str(new_balance)
   #update= localtime + "," + timestamp + "," + new_balance + "," + stake
-  update= localtime + ", " + timestamp + ", " + new_balance + ", " + stake
+  update= localdate + ", " + localtime + ", " + timestamp + ", " + new_balance + ", " + stake
   fileobj= open('/home/pi/accountant/account.txt', 'a')
   fileobj.write(update)
   fileobj.write("\n")
   fileobj.close
-  print('Saved localtime, timestamp, stake and the new balance to account.txt')
+  #print('Saved localtime, timestamp, stake and the new balance to account.txt')
   
 
 get_address()
