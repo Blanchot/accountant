@@ -14,6 +14,7 @@ explorer.nebl.io/ext/getbalance/<address>
 
 import requests, json
 import time
+import datetime
 
 
 def get_address():
@@ -64,7 +65,9 @@ def write_new_balance(new_balance):
   print('Saved new balance to balance.txt')
   
 def write_account(timestamp, stake, new_balance):
-  localtime = time.asctime(time.localtime(time.time()))
+  #localtime= time.asctime(time.localtime(time.time()))
+  localtime= datetime.datetime.utcfromtimestamp(timestamp)
+  localtime= localtime.strftime('%d-%m-%Y %H:%M:%S')
   timestamp= str(timestamp)
   stake= str(stake)
   new_balance= str(new_balance)
