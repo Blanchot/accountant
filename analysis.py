@@ -11,10 +11,11 @@ with f:
   num_days= 0
   records= []
   for row in reader:
+    records= records.append(row)
     num_days= num_days +1
     day_stake= float(row['stake'])
     total_stake= total_stake + day_stake
-    records= records.append(row)
+    
     #total_stake= round(total_stake,8)
     #print(row['date'], row['time'], row['timestamp'], row['balance'], row['stake'])
 
