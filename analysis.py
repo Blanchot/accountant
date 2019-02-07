@@ -16,13 +16,10 @@ with f:
     total_stake= round(total_stake,8)
     print(total_stake)
 
-print('\nNumber of days:', num_days)
-print('Total stakes:', total_stake)
-print('Daily average:', total_stake/num_days)
-
-
-with f:
-  reader = csv.DictReader(f)
+  print('\nNumber of days:', num_days)
+  print('Total stakes:', total_stake)
+  print('Daily average:', total_stake/num_days)
+  
   for row in reader:
     print(row['date'], row['time'], row['timestamp'], row['balance'], row['stake'])
 
