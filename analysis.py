@@ -9,9 +9,9 @@ with f:
   reader = csv.DictReader(f)
   total_stake= 0
   num_days= 0
-  records= []
+  dayList= []
   for row in reader:
-    records= records.append(row)
+    dayList= dayList.append(row)
     num_days= num_days +1
     day_stake= float(row['stake'])
     total_stake= total_stake + day_stake
@@ -26,9 +26,9 @@ daily_average= round(total_stake/num_days,8)
 print('Daily average:', daily_average)
 
 print()
-recordsReversed= list(reversed(records))
+dayListReversed= list(reversed(dayList))
 
-for row in recordsReversed:
+for row in dayListReversed:
   print(row['date'], row['time'], row['timestamp'], row['balance'], row['stake'])
 
 
