@@ -11,7 +11,7 @@ with f:
   num_days= 0
   dayList= []
   for row in reader:
-    dayList= dayList.append(row)
+    dayList.append(row)
     num_days= num_days +1
     day_stake= float(row['stake'])
     total_stake= total_stake + day_stake
