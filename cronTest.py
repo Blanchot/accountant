@@ -3,8 +3,12 @@
 # cronTest.py
 # Python script test for crontab
 # NOTE: First create cronTest.txt by hand
-# Crontab instruction to run every minute: 
-# * * * * * /home/pi/work/accountant/cronTest.py
+# Crontab instruction to run once a minute: 
+# * * * * * /usr/bin/python3 /home/pi/work/accountant/cronTest.py
+# Crontab instruction to run once an hour on the hour:
+# 0 0-23 * * * /usr/bin/python3 /home/pi/work/accountant/cronTest.py
+# Crontab instruction to run once a day at 23:55:
+# 59 23 * * * /usr/bin/python3 /home/pi/work/accountant/cronTest.py
 
 import time
 
