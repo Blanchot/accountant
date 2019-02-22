@@ -33,8 +33,8 @@ expected= round(expected,8)
 print('Expected (per last balance):', expected)
 
 print()
-print("\nLAST 20 DAYS")
-for row in dayListReversed[0:20]:
+print("\nLAST 30 DAYS")
+for row in dayListReversed[0:30]:
   print(row['date'], row['time'], row['timestamp'], row['balance'], row['stake'])
 
 
